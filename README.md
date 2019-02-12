@@ -6,7 +6,6 @@ Include scripts and style for nepali date picker mentioned above, and customCale
 
 ### Typical nepali calendar implementation
 ......
-<link rel="stylesheet" href="./clinical.min.e8bcda08.css"/>
 **<link rel="stylesheet" href="../components/nepaliDatePicker.min.922e4e85.css"/>**
 ** <style>.nepali-date-picker{z-index:9999999;}</style> **
 ......
