@@ -8,8 +8,8 @@ Include scripts and style for nepali date picker mentioned above, and customCale
 
     ......
     <link rel="stylesheet" href="./clinical.min.e8bcda08.css"/>
-		**<link rel="stylesheet" href="../components/nepaliDatePicker.min.922e4e85.css"/>**
-		**<style>.nepali-date-picker{z-index:9999999;}</style>**
+		** <link rel="stylesheet" href="../components/nepaliDatePicker.min.922e4e85.css"/> **
+		** <style>.nepali-date-picker{z-index:9999999;}</style> **
     ......
     ......
     <script src="../components/angular-elastic/elastic.5f4647d6.js"></script>
