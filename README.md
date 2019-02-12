@@ -4,4 +4,4 @@ This script helps to add custom calendar for [Bahmni](https://www.bahmni.org "Ba
 ## Usage
 Include scripts and style for nepali date picker mentioned above, and customCalendar.js (after existing scripts) in bahmni apps index.html (registration/index.html, clinical/index.html).
 
-Nepali calendar implementation example is [here] (custom-calendar-for-bahmni/example-registration-index.html)
+Nepali calendar implementation example is [here] (https://github.com/padamdahal/custom-calendar-for-bahmni/blob/master/example-registration-index.html)
