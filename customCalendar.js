@@ -36,15 +36,17 @@ try{
 					// for retrospective data entry
 				}else{
 					// For Observation of date type
-					if($scope.observation.value != null && $scope.observation.value != "" && $scope.observation.value !== undefined){
-						adDate = new Date($scope.observation.value);
-						
-						// Modify for other calendars based on the calendar implementation ///////////////////////////////////////////////////////// 
-						var customDate = calendarFunctions.getBsDateByAdDate(adDate.getFullYear(),adDate.getMonth()+1, adDate.getDate());
-						customDate = calendarFunctions.bsDateFormat("%y-%m-%d", customDate.bsYear, customDate.bsMonth, customDate.bsDate)
-						////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-						
-						customDateField.val(customDate);
+					if($scope.hasOwnProperty('observation')){
+						if($scope.observation.value != null && $scope.observation.value != "" && $scope.observation.value !== undefined){
+							adDate = new Date($scope.observation.value);
+							
+							// Modify for other calendars based on the calendar implementation ///////////////////////////////////////////////////////// 
+							var customDate = calendarFunctions.getBsDateByAdDate(adDate.getFullYear(),adDate.getMonth()+1, adDate.getDate());
+							customDate = calendarFunctions.bsDateFormat("%y-%m-%d", customDate.bsYear, customDate.bsMonth, customDate.bsDate)
+							////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+							
+							customDateField.val(customDate);
+						}
 					}
 				}
 				
@@ -122,6 +124,22 @@ try {
 				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 				$scope.obsGroup.date = customDate;
+			}
+			
+			
+			// For patient dashboard - Diagnosis datetime
+			if(element.attr('id') === 'diagnosisDate'){
+				var diagDate = new Date($scope.diagnosis.diagnosisDateTime);
+				
+				// Modify for other calendars based on calendar implementation //////////////////////////////////////////////////////////////////////////////////////////////////////
+				var customDate = calendarFunctions.getBsDateByAdDate(diagDate.getFullYear(),diagDate.getMonth()+1,diagDate.getDate());
+				customDate = calendarFunctions.bsDateFormat('%y|%m|%d', customDate.bsYear, customDate.bsMonth, customDate.bsDate)+" "+diagDate.getHours()+":"+diagDate.getMinutes();
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+				$scope.diagnosis.diagnosisDateTime = customDate;
+				if($scope.diagnosis.hasOwnProperty('latestDiagnosis') && $scope.diagnosis.latestDiagnosis != null){
+					$scope.diagnosis.latestDiagnosis.diagnosisDateTime = customDate;
+				}
 			}
 			
 			// Visit summary page
