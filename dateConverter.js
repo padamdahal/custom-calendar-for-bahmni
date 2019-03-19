@@ -172,6 +172,7 @@ function DateConverter(){
         if (typeof(format)==='undefined'){
             format = "-";
 		}
+		// Added By padam
 		if(this.englishMonth <=9){
 			this.englishMonth = '0'+this.englishMonth;
 		}
@@ -271,7 +272,7 @@ function DateConverter(){
         if (typeof(format)==='undefined'){
             format="-";
 		}
-		
+		// Added By padam
 		if(this.nepaliMonth <=9){
 			this.nepaliMonth = '0'+this.nepaliMonth;
 		}
@@ -284,6 +285,9 @@ function DateConverter(){
 	
 	// Added By padam
 	this.toNepaliStringLong = function(){
+		if(this.nepaliDate <=9){
+			this.nepaliDate = '0'+this.nepaliDate;
+		}
         return this.nepaliYear+' '+this.nepaliMonthNames[this.nepaliMonth-1]+' '+this.nepaliDate;
     };
 	
