@@ -2,12 +2,22 @@
 
 	Author : Ajesh Sen Thapa
 	Website: www.ajesh.com.np
+	
+	Usage:
+	var converter = new DateConverter();
+    converter.setNepaliDate(2074, 7, 26)
+    alert(converter.getEnglishYear()+"/"+converter.getEnglishMonth()+"/"+converter.getEnglishDate())
 
+    converter.setCurrentDate()
+    alert(converter.getNepaliYear()+"/"+converter.getNepaliMonth()+"/"+converter.getNepaliDate())
+    alert( "Weekly day: "+ converter.getDay() )
+    alert( converter.toNepaliString() )
 */
 
 function DateConverter(){
 	this.englishMonths = [31, 28, 31, 30, 31, 30,31, 31, 30, 31, 30, 31];
     this.englishLeapMonths = [31, 29, 31, 30, 31, 30,31, 31, 30, 31, 30, 31];
+	this.nepaliMonthNames = ["Baisakh","Jestha","Ashad","Shrawan","Bhadra","Ashwin","Kartik","Mangsir","Paush","Magh","Falgun","Chaitra"];
 
     this.nepaliMonths = [
         [ 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31 ],  //2000
@@ -159,8 +169,15 @@ function DateConverter(){
     };
 
     this.toEnglishString = function(format){
-        if (typeof(format)==='undefined')
+        if (typeof(format)==='undefined'){
             format = "-";
+		}
+		if(this.englishMonth <=9){
+			this.englishMonth = '0'+this.englishMonth;
+		}
+		if(this.englishDate <=9){
+			this.englishDate = '0'+this.englishDate;
+		}
         return this.englishYear+format+this.englishMonth+format+this.englishDate;
     };
 
@@ -251,10 +268,26 @@ function DateConverter(){
     };
 
     this.toNepaliString = function(format){
-        if (typeof(format)==='undefined')
+        if (typeof(format)==='undefined'){
             format="-";
+		}
+		
+		if(this.nepaliMonth <=9){
+			this.nepaliMonth = '0'+this.nepaliMonth;
+		}
+		if(this.nepaliDate <=9){
+			this.nepaliDate = '0'+this.nepaliDate;
+		}
+		
         return this.nepaliYear+format+this.nepaliMonth+format+this.nepaliDate;
     };
+	
+	// Added By padam
+	this.toNepaliStringLong = function(){
+        return this.nepaliYear+' '+this.nepaliMonthNames[this.nepaliMonth-1]+' '+this.nepaliDate;
+    };
+	
+	///////////
 
     this.getNepaliDateDifference = function(year, month, date){
 
